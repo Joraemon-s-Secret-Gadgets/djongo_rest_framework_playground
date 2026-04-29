@@ -6,6 +6,11 @@ permissions:
   pull-requests: write
 
 on:
+  pull_request:
+    types: [ opened, reopened, synchronize ]
+    branches:
+      - dev
+      - main
   pull_request_target:
     types: [ opened, reopened, synchronize ]
     branches:
@@ -14,6 +19,11 @@ on:
 
 jobs:
   code-review:
+    if: >-
+      (github.event_name == 'pull_request' &&
+       github.event.pull_request.head.repo.full_name == github.repository) ||
+      (github.event_name == 'pull_request_target' &&
+       github.event.pull_request.head.repo.full_name != github.repository)
     runs-on: ubuntu-latest
     steps:
       - uses: anc95/ChatGPT-CodeReview@v1.0.23
