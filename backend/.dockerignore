@@ -1,0 +1,57 @@
+# Django REST Framework 백엔드 Docker 빌드 컨텍스트 제외 규칙.
+#
+# 이 파일은 로컬 캐시, 비밀값, 런타임 데이터, 에디터 메타데이터가
+# 백엔드 Docker 빌드 컨텍스트에 포함되지 않도록 합니다.
+
+# Python 바이트코드와 캐시
+__pycache__/
+*.py[cod]
+*$py.class
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+
+# 가상환경과 로컬 Python 도구
+.venv/
+venv/
+env/
+ENV/
+pip-wheel-metadata/
+*.egg-info/
+
+# Django 런타임 산출물
+*.log
+db.sqlite3
+db.sqlite3-journal
+media/
+staticfiles/
+
+# 로컬 환경 파일과 비밀값
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+*.crt
+
+# Docker 및 로컬 compose 오버라이드
+docker-compose.override.yml
+compose.override.yml
+
+# IDE, 에디터, OS 파일
+.idea/
+.vscode/
+*.swp
+*.swo
+.DS_Store
+Thumbs.db
+
+# 이미지에 복사하지 않을 Git 및 프로젝트 메타데이터
+.git/
+.gitignore
+.dockerignore
+
+# File History
+# 2026-04-29: 백엔드 Docker 빌드 컨텍스트 제외 규칙을 생성했습니다.
