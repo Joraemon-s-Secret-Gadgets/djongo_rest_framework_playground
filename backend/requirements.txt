@@ -1,0 +1,21 @@
+# Django REST Framework 백엔드 의존성.
+#
+# 이 파일은 백엔드 실행 이미지에 필요한 Python 패키지를 정의합니다.
+
+# 핵심 웹 프레임워크와 API 계층입니다.
+Django>=5.2,<6.0
+djangorestframework>=3.16,<3.17
+drf-spectacular>=0.29,<0.30
+
+# 프론트엔드와 백엔드 로컬 개발 시 CORS 요청을 처리합니다.
+django-cors-headers>=4.7,<5.0
+
+# 로컬 개발은 runserver를 사용하더라도 배포 가능한 WSGI 서버를 준비해 둡니다.
+gunicorn>=23.0,<24.0
+
+# Django 데이터베이스 백엔드에서 사용하는 MySQL 클라이언트 드라이버입니다.
+mysqlclient>=2.2,<3.0
+
+# File History
+# 2026-04-29: Django REST Framework 백엔드 의존성 목록을 생성했습니다.
+# 2026-04-29: Docker compose 환경 변수 주입을 사용하도록 python-dotenv 의존성을 제거했습니다.
